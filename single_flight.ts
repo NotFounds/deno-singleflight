@@ -37,12 +37,12 @@ export class SingleFlight {
             .then(() => func())
             .then((res) => {
               // TODO: lock
-              getWaitCall(key).resolvers.forEach((resolve) => resolve(res));
+              this.getWaitCall(key).resolvers.forEach((resolve) => resolve(res));
               // TODO: unlock
             })
             .catch((err) => {
               // TODO: lock
-              getWaitCall(key).rejecters.forEach((reject) => reject(res));
+              this.getWaitCall(key).rejecters.forEach((reject) => reject(err));
               // TODO: unlock
             });
         };
