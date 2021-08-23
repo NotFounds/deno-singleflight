@@ -60,3 +60,12 @@ Only the first function call is evaluated.
 
 ## References
 - [singleflight.go | sync/singleflight](https://github.com/golang/sync/blob/master/singleflight/singleflight.go)
+
+## License
+Copyright © 2021 NotFounds.
+This library is released under the MIT License.
+
+---
+
+This library is developed based on [zcong1993/singleflight](https://github.com/zcong1993/singleflight).
+[LICENSE](https://github.com/zcong1993/singleflight/blob/master/LICENSE)
