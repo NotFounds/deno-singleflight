@@ -41,6 +41,12 @@ Deno.test(".Do suppresses duplications", async () => {
   });
 });
 
-Deno.test(".Do with Error", () => {
-  assert(false, "not implemented");
+Deno.test(".Do with Error", async () => {
+  const SG = new SingleFlight();
+  await SG
+    .Do("foo", () => {
+      throw Error("some error");
+    })
+    .then(() => assert(false, "do not call this"))
+    .catch((err) => assertEquals((err as Error).message, "some error"));
 });
