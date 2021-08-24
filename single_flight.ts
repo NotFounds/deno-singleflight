@@ -1,4 +1,6 @@
+// deno-lint-ignore no-explicit-any
 type Resolver<T = any> = (value: T) => void;
+// deno-lint-ignore no-explicit-any
 type Rejecter<T = any> = (reason: T) => void;
 type Call = {
   firstCall: boolean;
@@ -8,6 +10,7 @@ type Call = {
 };
 
 export type KeyType = string | symbol;
+// deno-lint-ignore no-explicit-any
 export type Func<T = any> = () => T;
 
 export class SingleFlight {
@@ -45,7 +48,7 @@ export class SingleFlight {
               this.getWaitCall(key).rejecters.forEach((reject) => reject(err));
               // TODO: unlock
             });
-        };
+        }
       }
     ));
   }
