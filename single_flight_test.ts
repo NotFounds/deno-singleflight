@@ -1,5 +1,5 @@
 import { SingleFlight } from "./mod.ts";
-import { assert, assertEquals } from "https://deno.land/std@0.105.0/testing/asserts.ts";
+import { assert, assertEquals } from "./test.deps.ts";
 
 const heavyFunc = (x: number, y: number): string => {
   // heavy calculation
@@ -36,7 +36,7 @@ Deno.test(".Do suppresses duplications", async () => {
     promises.push(SG.Do(key, () => assert(false, "do not call this")));
   }
 
-  Promise.all(promises).then((ret) => {
+  await Promise.all(promises).then((ret) => {
     ret.forEach((x) => assertEquals(x, "success"))
   });
 });
