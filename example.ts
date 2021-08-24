@@ -1,3 +1,4 @@
+// deno-lint-ignore-file
 import { SingleFlight } from "./mod.ts";
 
 const SG = new SingleFlight();
