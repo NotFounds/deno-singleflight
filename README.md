@@ -1,4 +1,5 @@
 # deno-singleflight
+[![Deno](https://github.com/NotFounds/deno-singleflight/actions/workflows/deno.yml/badge.svg?branch=main)](https://github.com/NotFounds/deno-singleflight/actions/workflows/deno.yml)  
 provides a duplicate function call suppression
 
 ## Usage
@@ -62,10 +63,10 @@ Only the first function call is evaluated.
 - [singleflight.go | sync/singleflight](https://github.com/golang/sync/blob/master/singleflight/singleflight.go)
 
 ## License
-Copyright © 2021 NotFounds.
-This library is released under the MIT License.
+Copyright © 2021 NotFounds.  
+
+This library is released under the MIT License.  
 
 ---
 
-This library is developed based on [zcong1993/singleflight](https://github.com/zcong1993/singleflight).
-[LICENSE](https://github.com/zcong1993/singleflight/blob/master/LICENSE)
+This library is developed based on [zcong1993/singleflight](https://github.com/zcong1993/singleflight) ([LICENSE](https://github.com/zcong1993/singleflight/blob/master/LICENSE))
