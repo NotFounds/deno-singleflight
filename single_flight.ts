@@ -47,7 +47,6 @@ export class SingleFlight {
   }
 
   public Forget(key: KeyType) {
-    // TODO: lock
     this.waitCalls.set(key, {
       firstCall: false,
       resolvers: [],
@@ -58,7 +57,6 @@ export class SingleFlight {
     if (!ok && this.waitCalls.has(key)) {
       throw Error(`Failed to remove key(= ${key.toString()})`);
     }
-    // TODO: unlock
   }
 
   private getWaitCall(key: KeyType): Call {
