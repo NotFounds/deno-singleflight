@@ -19,11 +19,9 @@ export class SingleFlight {
   public async Do<T>(key: KeyType, func: Func): Promise<T> {
     return await (new Promise<T>(
       (resolve, reject) => {
-        // TODO: lock
         const wc = this.getWaitCall(key);
         if (wc.forgotten) {
           this.waitCalls.delete(key);
-          // TODO: unlock
           reject(`The key(= ${key.toString()}) is already removed`);
           return;
         }
@@ -33,20 +31,15 @@ export class SingleFlight {
         wc.resolvers.push(resolve);
         wc.rejecters.push(reject);
         this.waitCalls.set(key, wc);
-        // TODO: unlock
 
         if (isFirst) {
           Promise.resolve()
             .then(() => func())
             .then((res) => {
-              // TODO: lock
               this.getWaitCall(key).resolvers.forEach((resolve) => resolve(res));
-              // TODO: unlock
             })
             .catch((err) => {
-              // TODO: lock
               this.getWaitCall(key).rejecters.forEach((reject) => reject(err));
-              // TODO: unlock
             });
         }
       }
